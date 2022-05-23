@@ -15,7 +15,7 @@ import { CartContext } from '../../context/Cart';
 
 const Itens = () => {
 
-    const [produtos, setProdutos] = useState([{
+    const [product, setProduct] = useState([{
         id: 1,
         nome: "Lanche",
         descricao: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
@@ -29,13 +29,14 @@ const Itens = () => {
 
     const { itensCart, setItensCart } = useContext(CartContext)
 
-    function addCart(produto){
-        const itensRepetidos = itensCart.filter(item => item.id === produto.id) 
+    function addCart(product){
+        product.quantidade = 1
+        const itensRepetidos = itensCart.filter(item => item.id === product.id) 
         if(itensRepetidos.length === 0){
-            const newList = [...itensCart, produto]
+            const newList = [...itensCart, product]
             setItensCart(newList)
         }else{
-            alert("Este produto já está no carrinho")
+            alert("produto ja esta no carrinho")
         }
     }
 
@@ -45,25 +46,25 @@ const Itens = () => {
                 <Grid container spacing={2} direction="row"
                     justifyContent="center"
                     alignItems="center">
-                    {produtos.map(produto => (
-                        <Grid item md={4} key={produto.id}>
+                    {product.map(product => (
+                        <Grid item md={4} key={product.id}>
                             <Card sx={{ maxWidth: 345 }}>
                                 <CardMedia
                                     component="img"
                                     height="140"
-                                    image={produto.foto}
+                                    image={product.foto}
                                     alt="green iguana"
                                 />
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="div">
-                                        {produto.nome}
+                                        {product.nome}
                                     </Typography>
                                     <Typography variant="body2" color="text.secondary">
-                                        {produto.descricao}
+                                        {product.descricao}
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" onClick={() => addCart(produto)}>Adicionar ao Carrinho</Button>
+                                    <Button size="small" onClick={() => addCart(product)}>Adicionar ao Carrinho</Button>
                                 </CardActions>
                             </Card>
                         </Grid>

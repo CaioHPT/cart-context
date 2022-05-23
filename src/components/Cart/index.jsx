@@ -21,7 +21,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 
 
-const Carrinho = () => {
+const Cart = () => {
 
     const { itensCart, setItensCart } = useContext(CartContext)
 
@@ -42,4 +42,4 @@ const Carrinho = () => {
     )
 }
 
-export default Carrinho 
+export default Cart 

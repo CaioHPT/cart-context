@@ -11,12 +11,12 @@ import Grid from '@mui/material/Grid';
 import { useContext } from 'react';
 import { CartContext } from '../context/Cart';
 
-const ItensCarrinho = () => {
+const ItensCart = () => {
 
     const { itensCart, setItensCart } = useContext(CartContext)
 
-    function removerItem(produto){
-        const newList = itensCart.filter((item) => item.id !== produto.id)
+    function removerItem(product){
+        const newList = itensCart.filter((item) => item.id !== product.id)
         setItensCart(newList)
     }
 
@@ -57,4 +57,4 @@ const ItensCarrinho = () => {
     )
 }
 
-export default ItensCarrinho
+export default ItensCart
