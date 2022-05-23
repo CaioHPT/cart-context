@@ -1,7 +1,9 @@
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
+
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
 import { useContext } from 'react';
 import { CartContext } from '../../context/Cart';
@@ -23,13 +25,14 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const Cart = () => {
 
-    const { itensCart, setItensCart } = useContext(CartContext)
-
+    const { itensCart } = useContext(CartContext)
 
     return (
         <div className="divCart">
             <Link to='/'>
-                <h5>Home</h5>
+                <IconButton aria-label="cart">
+                    <HomeRoundedIcon />
+                </IconButton>
             </Link>
             <Link to='/carrinho'>
                 <IconButton aria-label="cart">
